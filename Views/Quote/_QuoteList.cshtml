@@ -1,0 +1,8 @@
+@model List<QuoteApp.Models.Quote>
+
+<ul>
+    @foreach (var quote in Model)
+    {
+        <li>@quote.Text - <i>@quote.Author</i></li>
+    }
+</ul>

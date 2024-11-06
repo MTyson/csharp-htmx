@@ -1,0 +1,23 @@
+@model List<QuoteApp.Models.Quote>
+
+<h1>Quotes</h1>
+
+<div>
+<ul id="quoteList">
+    @foreach (var quote in Model)
+    {
+      @await Html.PartialAsync("_QuoteItem", quote)
+    }
+</ul>
+</div>
+
+<form 
+      hx-post="/quote/add" 
+      hx-target="#quoteList" 
+      hx-swap="beforeend"> 
+    <input type="text" name="text" placeholder="Quote text" />
+    <input type="text" name="author" placeholder="Author" />
+    <button type="submit">Add Quote</button>
+</form>
+
+<script src="https://unpkg.com/htmx.org@1.9.4"></script>
